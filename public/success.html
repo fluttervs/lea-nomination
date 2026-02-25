@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nomination Submitted - MCMC</title>
+    <link rel="stylesheet" href="css/nomination.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Language Toggle -->
+    <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">
+        <span class="lang-toggle-flag">🇲🇾</span>
+        <span class="lang-toggle-text">BM</span>
+    </button>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+        <span class="theme-toggle-icon">🌙</span>
+        <span class="theme-toggle-text">Dark</span>
+    </button>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-circle">MCMC</div>
+            </div>
+            <h1 class="main-title" data-translate="mainTitle">POSTAL SECURITY INCIDENT REPORTING PLATFORM</h1>
+            <p class="sub-title" data-translate="subTitle">NOMINATION FORM FOR LAW ENFORCEMENT AGENCY (LEA)</p>
+            <p class="organization" data-translate="organization">Suruhanjaya Komunikasi dan Multimedia Malaysia (MCMC)</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="success-container">
+                <div class="success-icon">
+                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                        <circle cx="40" cy="40" r="38" stroke="#10B981" stroke-width="4"/>
+                        <path d="M25 40L35 50L55 30" stroke="#10B981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                
+                <h1 class="success-title" data-translate="successTitle">Nomination Submitted Successfully</h1>
+                <p class="success-subtitle" data-translate="successSubtitle">Your LEA Officer Nomination has been received and is being processed</p>
+                
+                <div class="reference-box">
+                    <p class="reference-label" data-translate="referenceNumber">Reference Number</p>
+                    <h2 class="reference-number" id="referenceNumber">LEA-2026-70905</h2>
+                    <p class="reference-note">Please save this reference number for your records</p>
+                </div>
+                
+                <div class="next-steps-box">
+                    <h3 class="next-steps-title" data-translate="nextStepsTitle">Next Steps:</h3>
+                    <ul class="next-steps-list">
+                        <li data-translate="nextStep1">Your nomination will be reviewed by MCMC within 3-5 business days</li>
+                        <li data-translate="nextStep2">You will receive an email confirmation at the provided official email address</li>
+                        <li data-translate="nextStep3">Nominated officers will receive access credentials upon approval</li>
+                        <li data-translate="nextStep4">For urgent matters, please contact MCMC directly with your reference number</li>
+                    </ul>
+                </div>
+                
+                <div class="success-actions">
+                    <button type="button" class="btn btn-secondary" onclick="downloadPDF()">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M17.5 12.5V15.8333C17.5 16.2754 17.3244 16.6993 17.0118 17.0118C16.6993 17.3244 16.2754 17.5 15.8333 17.5H4.16667C3.72464 17.5 3.30072 17.3244 2.98816 17.0118C2.67559 16.6993 2.5 16.2754 2.5 15.8333V12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M5.83301 8.33331L9.99967 12.5L14.1663 8.33331" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10 12.5V2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span data-translate="downloadPDF">Download PDF</span>
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="returnHome()">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M2.5 7.5L10 2.5L17.5 7.5V16.6667C17.5 17.1087 17.3244 17.5326 17.0118 17.8452C16.6993 18.1577 16.2754 18.3333 15.8333 18.3333H4.16667C3.72464 18.3333 3.30072 18.1577 2.98816 17.8452C2.67559 17.5326 2.5 17.1087 2.5 16.6667V7.5Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7.5 18.3333V10H12.5V18.3333" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span data-translate="returnHome">Return to Home</span>
+                    </button>
+                </div>
+                
+                <div class="support-info">
+                    <p data-translate="needHelp">Need help? Contact MCMC Support:</p>
+                    <p>
+                        <a href="mailto:support@mcmc.gov.my" class="support-link">support@mcmc.gov.my</a> | 
+                        <a href="tel:+60386888000" class="support-link">+603-8688-8000</a>
+                    </p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Suruhanjaya Komunikasi dan Multimedia Malaysia. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/nomination.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load reference number from localStorage
+            const refNumber = localStorage.getItem('referenceNumber') || 'LEA-2026-70905';
+            document.getElementById('referenceNumber').textContent = refNumber;
+        });
+
+        function downloadPDF() {
+            // Create printable content
+            const formData = JSON.parse(localStorage.getItem('nominationFormData') || '{}');
+            const refNumber = localStorage.getItem('referenceNumber') || 'LEA-2026-70905';
+            const submissionDate = new Date().toLocaleString('en-MY', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+
+            // Create print window
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(`
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>LEA Nomination Form - ${refNumber}</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2cm;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #000;
+            background-color: #fff;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #003E7E;
+            padding-bottom: 20px;
+        }
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: #003E7E;
+            color: white;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        h1 {
+            font-size: 16pt;
+            color: #003E7E;
+            margin-bottom: 5px;
+        }
+        h2 {
+            font-size: 11pt;
+            color: #666;
+            font-weight: normal;
+            margin-bottom: 3px;
+        }
+        .ref-box {
+            background: #f0f4f8;
+            border: 2px solid #003E7E;
+            padding: 15px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .ref-number {
+            font-size: 18pt;
+            font-weight: bold;
+            color: #003E7E;
+            letter-spacing: 2px;
+        }
+        .section {
+            margin-bottom: 25px;
+            page-break-inside: avoid;
+        }
+        .section-title {
+            background: #003E7E;
+            color: white;
+            padding: 8px 12px;
+            font-size: 12pt;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .field-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .field {
+            margin-bottom: 10px;
+        }
+        .field-label {
+            font-weight: bold;
+            color: #666;
+            font-size: 9pt;
+            margin-bottom: 3px;
+        }
+        .field-value {
+            color: #000;
+            font-size: 11pt;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 3px;
+        }
+        .full-width {
+            grid-column: 1 / -1;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #ddd;
+            font-size: 9pt;
+            color: #666;
+            text-align: center;
+        }
+        .timestamp {
+            text-align: right;
+            font-size: 9pt;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        @media print {
+            body { padding: 0; }
+            .no-print { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="images/mcmc-logo.png" alt="MCMC Logo" style="width: 150px; height: auto; margin-bottom: 10px;">
+        <h1>POSTAL SECURITY INCIDENT REPORTING PLATFORM</h1>
+        <h2>NOMINATION FORM FOR LAW ENFORCEMENT AGENCY (LEA)</h2>
+        <h2>Suruhanjaya Komunikasi dan Multimedia Malaysia (MCMC)</h2>
+    </div>
+
+    <div class="timestamp">
+        <strong>Submission Date:</strong> ${submissionDate}
+    </div>
+
+    <div class="ref-box">
+        <div style="font-size: 10pt; color: #666; margin-bottom: 5px;">Reference Number</div>
+        <div class="ref-number">${refNumber}</div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Agency Information</div>
+        <div class="field-group">
+            <div class="field">
+                <div class="field-label">Organization Name</div>
+                <div class="field-value">${formData.step1?.organizationName || '-'}</div>
+            </div>
+            <div class="field">
+                <div class="field-label">Agency Type</div>
+                <div class="field-value">${formData.step1?.agencyType || '-'}</div>
+            </div>
+            <div class="field">
+                <div class="field-label">Department/Division</div>
+                <div class="field-value">${formData.step1?.department || '-'}</div>
+            </div>
+            <div class="field">
+                <div class="field-label">Phone Number</div>
+                <div class="field-value">${formData.step1?.phoneNumber || '-'}</div>
+            </div>
+            <div class="field">
+                <div class="field-label">Fax Number</div>
+                <div class="field-value">${formData.step1?.faxNumber || '-'}</div>
+            </div>
+        </div>
+        <div class="field full-width">
+            <div class="field-label">Official Address</div>
+            <div class="field-value">${(formData.step1?.officialAddress || '-').replace(/\n/g, '<br>')}</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Person In Charge 1 (Primary Contact)</div>
+        <div class="field-group">
+            <div class="field">
+                <div class="field-label">Full Name</div>
+                <div class="field-value">${(formData.step2?.pic1Salutation || '') + ' ' + (formData.step2?.pic1FullName || '-')}</div>
+            </div>
+            <div class="field">
+                <div class="field-label">MyKad No.</div>
+                <div class="field-value">${formData.step2?.pic1MyKad || '-'}</div>
+            </div>
+            <div class="field">
+                <div class="field-label">Designation/Position</div>
+                <div class="field-value">${formData.step2?.pic1Designation || '-'}</div>
+            </div>
+            <div class="field">
+                <div class="field-label">Department</div>
+                <div class="field-value">${formData.step2?.pic1Department || '-'}</div>
+            </div>
+            <div class="field">
+                <div class="field-label">Official Email</div>
+                <div class="field-value">${formData.step2?.pic1Email || '-'}</div>
+            </div>
+            <div class="field">
+                <div class="field-label">Office Phone No.</div>
+                <div class="field-value">${formData.step2?.pic1OfficePhone || '-'}</div>
+            </div>
+            <div class="field">
+                <div class="field-label">Mobile Phone No.</div>
+                <div class="field-value">${formData.step2?.pic1MobilePhone || '-'}</div>
+            </div>
+        </div>
+    </div>
+
+    ${formData.step3?.pic2FullName ? `
+    <div class="section">
+        <div class="section-title">Person In Charge 2 (Secondary Contact)</div>
+        <div class="field-group">
+            <div class="field">
+                <div class="field-label">Full Name</div>
+                <div class="field-value">${(formData.step3?.pic2Salutation || '') + ' ' + (formData.step3?.pic2FullName || '-')}</div>
+            </div>
+            <div class="field">
+                <div class="field-label">MyKad No.</div>
+                <div class="field-value">${formData.step3?.pic2MyKad || '-'}</div>
+            </div>
+            <div class="field">
+                <div class="field-label">Designation/Position</div>
+                <div class="field-value">${formData.step3?.pic2Designation || '-'}</div>
+            </div>
+            <div class="field">
+                <div class="field-label">Department</div>
+                <div class="field-value">${formData.step3?.pic2Department || '-'}</div>
+            </div>
+            <div class="field">
+                <div class="field-label">Official Email</div>
+                <div class="field-value">${formData.step3?.pic2Email || '-'}</div>
+            </div>
+            <div class="field">
+                <div class="field-label">Office Phone No.</div>
+                <div class="field-value">${formData.step3?.pic2OfficePhone || '-'}</div>
+            </div>
+            <div class="field">
+                <div class="field-label">Mobile Phone No.</div>
+                <div class="field-value">${formData.step3?.pic2MobilePhone || '-'}</div>
+            </div>
+        </div>
+    </div>
+    ` : ''}
+
+    <div class="section">
+        <div class="section-title">Authorization Details</div>
+        <div class="field-group">
+            <div class="field">
+                <div class="field-label">Authorized Person Name</div>
+                <div class="field-value">${formData.step4?.authorizedPersonName || '-'}</div>
+            </div>
+            <div class="field">
+                <div class="field-label">Authorized Person Position</div>
+                <div class="field-value">${formData.step4?.authorizedPersonPosition || '-'}</div>
+            </div>
+            <div class="field">
+                <div class="field-label">Date of Submission</div>
+                <div class="field-value">${formData.step4?.submissionDate || '-'}</div>
+            </div>
+            <div class="field">
+                <div class="field-label">Digital Signature</div>
+                <div class="field-value">${formData.step4?.digitalSignature || 'Not uploaded'}</div>
+            </div>
+            <div class="field">
+                <div class="field-label">Organization Stamp</div>
+                <div class="field-value">${formData.step4?.organizationStamp || 'Not uploaded'}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p><strong>Suruhanjaya Komunikasi dan Multimedia Malaysia (MCMC)</strong></p>
+        <p>MCMC Tower 1, Jalan IMPACT, Cyber 6, 63000 Cyberjaya, Selangor Darul Ehsan</p>
+        <p>Tel: 03-8688 8000 | Email: support@mcmc.gov.my | Website: www.mcmc.gov.my</p>
+        <p style="margin-top: 10px; font-size: 8pt;">
+            This is a computer-generated document. Please save this reference number: <strong>${refNumber}</strong>
+        </p>
+        <p style="margin-top: 10px; font-size: 8pt;">
+            Generated on: ${submissionDate}
+        </p>
+    </div>
+
+    <div class="no-print" style="text-align: center; margin-top: 30px; page-break-before: always;">
+        <button onclick="window.print()" style="background: #003E7E; color: white; border: none; padding: 12px 30px; font-size: 14pt; border-radius: 5px; cursor: pointer; margin: 10px;">
+            🖨️ Print / Save as PDF
+        </button>
+        <button onclick="window.close()" style="background: #666; color: white; border: none; padding: 12px 30px; font-size: 14pt; border-radius: 5px; cursor: pointer; margin: 10px;">
+            Close
+        </button>
+    </div>
+</body>
+</html>
+            `);
+            printWindow.document.close();
+            
+            // Auto-print after short delay
+            setTimeout(() => {
+                printWindow.focus();
+                printWindow.print();
+            }, 500);
+        }
+
+        function returnHome() {
+            // Clear form data
+            if (confirm('Return to home? This will clear your form data.')) {
+                localStorage.removeItem('nominationFormData');
+                localStorage.removeItem('referenceNumber');
+                window.location.href = 'agency.html';
+            }
+        }
+    </script>
+</body>
+</html>

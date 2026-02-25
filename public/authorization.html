@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSIRP LEA Nomination Form - MCMC</title>
+    <link rel="stylesheet" href="css/nomination.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Language Toggle -->
+    <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">
+        <span class="lang-toggle-flag">🇲🇾</span>
+        <span class="lang-toggle-text">BM</span>
+    </button>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+        <span class="theme-toggle-icon">🌙</span>
+        <span class="theme-toggle-text">Dark</span>
+    </button>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-circle">MCMC</div>
+            </div>
+            <h1 class="main-title" data-translate="mainTitle">POSTAL SECURITY INCIDENT REPORTING PLATFORM</h1>
+            <p class="sub-title" data-translate="subTitle">NOMINATION FORM FOR LAW ENFORCEMENT AGENCY (LEA)</p>
+            <p class="organization" data-translate="organization">Suruhanjaya Komunikasi dan Multimedia Malaysia (MCMC)</p>
+        </header>
+
+        <!-- Progress Stepper -->
+        <div class="progress-stepper">
+            <div class="step completed">
+                <div class="step-circle">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="step-label" data-translate="stepAgency">Agency Info</div>
+            </div>
+            <div class="step-line completed"></div>
+            
+            <div class="step completed">
+                <div class="step-circle">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="step-label" data-translate="stepPIC1">PIC 1</div>
+            </div>
+            <div class="step-line completed"></div>
+            
+            <div class="step completed">
+                <div class="step-circle">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="step-label" data-translate="stepPIC2">PIC 2</div>
+            </div>
+            <div class="step-line completed"></div>
+            
+            <div class="step active">
+                <div class="step-circle">4</div>
+                <div class="step-label" data-translate="stepAuth">Authorization</div>
+            </div>
+            <div class="step-line"></div>
+            
+            <div class="step">
+                <div class="step-circle">5</div>
+                <div class="step-label" data-translate="stepReview">Review</div>
+            </div>
+        </div>
+        <div class="step-counter">Step 4 of 5</div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="form-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2 class="form-title" style="margin: 0;" data-translate="authTitle">Authorization & Declaration</h2>
+                    <button type="button" onclick="fillDemoData()" class="btn" style="background: #F59E0B; color: white; padding: 8px 16px; font-size: 13px;" data-translate="fillDemo">
+                        ⚡ Fill Demo Data
+                    </button>
+                </div>
+                <p class="form-subtitle" data-translate="authSubtitle">Please provide authorization details and upload required documents</p>
+                
+                <form id="step4Form" class="nomination-form">
+                    <!-- Authorized Person Name -->
+                    <div class="form-group">
+                        <label for="authorizedPersonName" class="form-label" data-translate="authPersonName">
+                            Authorized Person Name <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="authorizedPersonName" 
+                            name="authorizedPersonName" 
+                            class="form-input" 
+                            placeholder="Enter name of authorizing officer"
+                            data-translate-placeholder="authPersonNamePlaceholder"
+                            required
+                        >
+                        <span class="error-message" id="authorizedPersonNameError"></span>
+                    </div>
+
+                    <!-- Authorized Person Position -->
+                    <div class="form-group">
+                        <label for="authorizedPersonPosition" class="form-label" data-translate="authPersonPosition">
+                            Authorized Person Position <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="authorizedPersonPosition" 
+                            name="authorizedPersonPosition" 
+                            class="form-input" 
+                            placeholder="Enter position/title"
+                            data-translate-placeholder="authPersonPositionPlaceholder"
+                            required
+                        >
+                        <span class="error-message" id="authorizedPersonPositionError"></span>
+                    </div>
+
+                    <!-- Date of Submission -->
+                    <div class="form-group">
+                        <label for="submissionDate" class="form-label" data-translate="submissionDate">
+                            Date of Submission <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="date" 
+                            id="submissionDate" 
+                            name="submissionDate" 
+                            class="form-input" 
+                            required
+                        >
+                        <span class="error-message" id="submissionDateError"></span>
+                    </div>
+
+                    <!-- Digital Signature Upload -->
+                    <div class="form-group">
+                        <label for="digitalSignature" class="form-label" data-translate="authLetterLabel">
+                            Authorization Letter
+                        </label>
+                        <p class="file-hint" data-translate="authLetterDesc">Upload the official authorization letter with signature and stamp</p>
+                        <div class="file-upload-area" id="signatureUploadArea">
+                            <div class="file-upload-content">
+                                <svg class="upload-icon" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                    <path d="M24 32V16M24 16L18 22M24 16L30 22" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M38 28V38H10V28" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <p class="upload-text" data-translate="uploadButton">Choose File</p>
+                                <p class="upload-specs" data-translate="noFile">No file selected</p>
+                                <p class="upload-specs" data-translate="supportedFormats">Supported formats: PDF, PNG, JPG (max. 5 MB)</p>
+                            </div>
+                            <input 
+                                type="file" 
+                                id="digitalSignature" 
+                                name="digitalSignature" 
+                                class="file-input" 
+                                accept=".png,.jpg,.jpeg"
+                                onchange="handleFileUpload(this, 'signatureUploadArea', 'signatureFileName')"
+                            >
+                        </div>
+                        <div id="signatureFileName" class="file-name"></div>
+                        <span class="error-message" id="digitalSignatureError"></span>
+                    </div>
+
+                    <!-- Organization Stamp Upload -->
+                    <div class="form-group">
+                        <label for="organizationStamp" class="form-label" data-translate="orgStampLabel">
+                            Organization Stamp Upload
+                        </label>
+                        <div class="file-upload-area" id="stampUploadArea">
+                            <div class="file-upload-content">
+                                <svg class="upload-icon" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                    <path d="M24 32V16M24 16L18 22M24 16L30 22" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M38 28V38H10V28" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <p class="upload-text">Click to upload or drag and drop</p>
+                                <p class="upload-specs">PNG, JPG, JPEG (max. 5 MB)</p>
+                            </div>
+                            <input 
+                                type="file" 
+                                id="organizationStamp" 
+                                name="organizationStamp" 
+                                class="file-input" 
+                                accept=".png,.jpg,.jpeg"
+                                onchange="handleFileUpload(this, 'stampUploadArea', 'stampFileName')"
+                            >
+                        </div>
+                        <div id="stampFileName" class="file-name"></div>
+                        <span class="error-message" id="organizationStampError"></span>
+                    </div>
+
+                    <!-- Declaration Checkbox -->
+                    <div class="form-group">
+                        <h3 class="form-label" data-translate="declarationTitle">Declaration</h3>
+                        <div class="declaration-box">
+                            <p data-translate="declarationText">By submitting this nomination form, I hereby declare that all information provided is true, accurate and complete to the best of my knowledge.</p>
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="declaration" name="declaration" required>
+                                <span class="checkbox-label" data-translate="agreeDeclaration">
+                                    I agree to the terms and conditions and confirm the accuracy of the information provided
+                                    <span class="required">*</span>
+                                </span>
+                            </label>
+                        </div>
+                        <span class="error-message" id="declarationError"></span>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="previousStep(4)" data-translate="previous">Back</button>
+                        <button type="button" class="btn btn-primary" onclick="nextStep(4)" data-translate="next">Next</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Suruhanjaya Komunikasi dan Multimedia Malaysia. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/nomination.js"></script>
+    <script>
+        // Set today's date as default
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('submissionDate').value = today;
+            loadFormData(4);
+        });
+
+        // Handle file upload
+        function handleFileUpload(input, areaId, fileNameId) {
+            const file = input.files[0];
+            const area = document.getElementById(areaId);
+            const fileNameDiv = document.getElementById(fileNameId);
+            
+            if (file) {
+                // Check file size (5MB = 5 * 1024 * 1024 bytes)
+                if (file.size > 5 * 1024 * 1024) {
+                    alert('File size must be less than 5 MB');
+                    input.value = '';
+                    return;
+                }
+                
+                // Check file type
+                const validTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+                if (!validTypes.includes(file.type)) {
+                    alert('Only PNG, JPG, and JPEG files are allowed');
+                    input.value = '';
+                    return;
+                }
+                
+                area.classList.add('file-uploaded');
+                fileNameDiv.innerHTML = `
+                    <div class="file-info">
+                        <span class="file-icon">📄</span>
+                        <span>${file.name}</span>
+                        <button type="button" class="remove-file" onclick="removeFile('${input.id}', '${areaId}', '${fileNameId}')">✕</button>
+                    </div>
+                `;
+                
+                // Store file info in localStorage
+                const formData = JSON.parse(localStorage.getItem('nominationFormData') || '{}');
+                if (!formData.step4) formData.step4 = {};
+                formData.step4[input.id] = file.name;
+                localStorage.setItem('nominationFormData', JSON.stringify(formData));
+            }
+        }
+
+        // Remove uploaded file
+        function removeFile(inputId, areaId, fileNameId) {
+            document.getElementById(inputId).value = '';
+            document.getElementById(areaId).classList.remove('file-uploaded');
+            document.getElementById(fileNameId).innerHTML = '';
+            
+            // Remove from localStorage
+            const formData = JSON.parse(localStorage.getItem('nominationFormData') || '{}');
+            if (formData.step4 && formData.step4[inputId]) {
+                delete formData.step4[inputId];
+                localStorage.setItem('nominationFormData', JSON.stringify(formData));
+            }
+        }
+
+        // Fill demo data
+        function fillDemoData() {
+            document.getElementById('authorizedPersonName').value = 'Tan Sri Mohd Shuhaily bin Mohd Zain';
+            document.getElementById('authorizedPersonPosition').value = 'Inspector-General of Police';
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('submissionDate').value = today;
+            document.getElementById('declaration').checked = true;
+            
+            // Save the demo data
+            saveFormData(4);
+            
+            alert('✅ Demo data filled! You can optionally upload files, or just click Next.');
+        }
+    </script>
+</body>
+</html>

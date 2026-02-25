@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSIRP LEA Nomination Form - MCMC</title>
+    <link rel="stylesheet" href="css/nomination.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Language Toggle -->
+    <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">
+        <span class="lang-toggle-flag">🇲🇾</span>
+        <span class="lang-toggle-text">BM</span>
+    </button>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+        <span class="theme-toggle-icon">🌙</span>
+        <span class="theme-toggle-text">Dark</span>
+    </button>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-circle">MCMC</div>
+            </div>
+            <h1 class="main-title" data-translate="mainTitle">POSTAL SECURITY INCIDENT REPORTING PLATFORM</h1>
+            <p class="sub-title" data-translate="subTitle">NOMINATION FORM FOR LAW ENFORCEMENT AGENCY (LEA)</p>
+            <p class="organization" data-translate="organization">Suruhanjaya Komunikasi dan Multimedia Malaysia (MCMC)</p>
+        </header>
+
+        <!-- Progress Stepper -->
+        <div class="progress-stepper">
+            <div class="step active">
+                <div class="step-circle">1</div>
+                <div class="step-label" data-translate="stepAgency">Agency Info</div>
+            </div>
+            <div class="step-line"></div>
+            
+           <div class="step">
+                <div class="step-circle">2</div>
+                <div class="step-label" data-translate="stepPIC1">PIC 1</div>
+            </div>
+            <div class="step-line"></div>
+            
+            <div class="step">
+                <div class="step-circle">3</div>
+                <div class="step-label" data-translate="stepPIC2">PIC 2</div>
+            </div>
+            <div class="step-line"></div>
+            
+            <div class="step">
+                <div class="step-circle">4</div>
+                <div class="step-label" data-translate="stepAuth">Authorization</div>
+            </div>
+            <div class="step-line"></div>
+            
+            <div class="step">
+                <div class="step-circle">5</div>
+                <div class="step-label" data-translate="stepReview">Review</div>
+            </div>
+        </div>
+        <div class="step-counter">Step 1 of 5</div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="form-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2 class="form-title" style="margin: 0;" data-translate="agencyInfoTitle">Agency Information</h2>
+                    <button type="button" onclick="fillDemoData()" class="btn" style="background: #F59E0B; color: white; padding: 8px 16px; font-size: 13px;" data-translate="fillDemo">
+                        ⚡ Fill Demo Data
+                    </button>
+                </div>
+                
+                <form id="step1Form" class="nomination-form">
+                    <!-- Organization Name -->
+                    <div class="form-group">
+                        <label for="organizationName" class="form-label">
+                            <span data-translate="orgName">Organization Name</span> <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="organizationName" 
+                            name="organizationName" 
+                            class="form-input" 
+                            placeholder="Enter organization name"
+                            data-translate-placeholder="orgNamePlaceholder"
+                            required
+                        >
+                        <span class="error-message" id="organizationNameError"></span>
+                    </div>
+
+                    <!-- Agency Type -->
+                    <div class="form-group">
+                        <label for="agencyType" class="form-label">
+                            Agency Type <span class="required">*</span>
+                        </label>
+                        <select id="agencyType" name="agencyType" class="form-select" required>
+                            <option value="">Select an option</option>
+                            <option value="Police">Police</option>
+                            <option value="MACC">MACC (Malaysian Anti-Corruption Commission)</option>
+                            <option value="Immigration">Immigration Department</option>
+                            <option value="Customs">Royal Malaysian Customs Department</option>
+                            <option value="JPJ">JPJ (Road Transport Department)</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <span class="error-message" id="agencyTypeError"></span>
+                    </div>
+
+                    <!-- Department/Division -->
+                    <div class="form-group">
+                        <label for="department" class="form-label">
+                            Department/Division <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="department" 
+                            name="department" 
+                            class="form-input" 
+                            placeholder="Enter department or division"
+                            required
+                        >
+                        <span class="error-message" id="departmentError"></span>
+                    </div>
+
+                    <!-- Official Address -->
+                    <div class="form-group">
+                        <label for="officialAddress" class="form-label">
+                            Official Address <span class="required">*</span>
+                        </label>
+                        <textarea 
+                            id="officialAddress" 
+                            name="officialAddress" 
+                            class="form-textarea" 
+                            placeholder="Enter complete official address"
+                            rows="4"
+                            required
+                        ></textarea>
+                        <span class="error-message" id="officialAddressError"></span>
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div class="form-group">
+                        <label for="phoneNumber" class="form-label">
+                            Phone Number <span class="required">*</span>
+                            <span class="hint-text">(Malaysian format)</span>
+                        </label>
+                        <input 
+                            type="tel" 
+                            id="phoneNumber" 
+                            name="phoneNumber" 
+                            class="form-input" 
+                            placeholder="+60XXXXXXXXXX or 0XXXXXXXXXX"
+                            required
+                        >
+                        <span class="error-message" id="phoneNumberError"></span>
+                    </div>
+
+                    <!-- Fax Number -->
+                    <div class="form-group">
+                        <label for="faxNumber" class="form-label">
+                            Fax Number
+                        </label>
+                        <input 
+                            type="tel" 
+                            id="faxNumber" 
+                            name="faxNumber" 
+                            class="form-input" 
+                            placeholder="+60XXXXXXXXXX or 0XXXXXXXXXX"
+                        >
+                        <span class="error-message" id="faxNumberError"></span>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-primary" onclick="nextStep(1)">Next</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Suruhanjaya Komunikasi dan Multimedia Malaysia. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/nomination.js"></script>
+    <script>
+        // Load saved data on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadFormData(1);
+        });
+
+        // Fill demo data
+        function fillDemoData() {
+            document.getElementById('organizationName').value = 'Royal Malaysia Police';
+            document.getElementById('agencyType').value = 'Police';
+            document.getElementById('department').value = 'Commercial Crime Investigation Department';
+            document.getElementById('officialAddress').value = 'Menara Cyber Crime, Jalan Semarak\n50630 Kuala Lumpur\nWilayah Persekutuan Kuala Lumpur';
+            document.getElementById('phoneNumber').value = '+60388888888';
+            document.getElementById('faxNumber').value = '+60388888899';
+            
+            // Save the demo data
+            saveFormData(1);
+            
+            alert('✅ Demo data filled! Click Next to continue.');
+        }
+    </script>
+</body>
+</html>

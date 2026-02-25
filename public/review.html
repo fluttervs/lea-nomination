@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSIRP LEA Nomination Form - MCMC</title>
+    <link rel="stylesheet" href="css/nomination.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @media print {
+            .header, .progress-stepper, .step-counter, .footer, 
+            .form-actions, .terms-section, .btn-edit { display: none !important; }
+            body { background: white; }
+            .form-card { box-shadow: none; padding: 20px; }
+            .review-section { page-break-inside: avoid; }
+            .form-title { color: #000; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Toggle -->
+    <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">
+        <span class="lang-toggle-flag">🇲🇾</span>
+        <span class="lang-toggle-text">BM</span>
+    </button>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+        <span class="theme-toggle-icon">🌙</span>
+        <span class="theme-toggle-text">Dark</span>
+    </button>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-circle">MCMC</div>
+            </div>
+            <h1 class="main-title" data-translate="mainTitle">POSTAL SECURITY INCIDENT REPORTING PLATFORM</h1>
+            <p class="sub-title" data-translate="subTitle">NOMINATION FORM FOR LAW ENFORCEMENT AGENCY (LEA)</p>
+            <p class="organization" data-translate="organization">Suruhanjaya Komunikasi dan Multimedia Malaysia (MCMC)</p>
+        </header>
+
+        <!-- Progress Stepper -->
+        <div class="progress-stepper">
+            <div class="step completed">
+                <div class="step-circle">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="step-label" data-translate="stepAgency">Agency Info</div>
+            </div>
+            <div class="step-line completed"></div>
+            
+            <div class="step completed">
+                <div class="step-circle">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="step-label" data-translate="stepPIC1">PIC 1</div>
+            </div>
+            <div class="step-line completed"></div>
+            
+            <div class="step completed">
+                <div class="step-circle">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="step-label" data-translate="stepPIC2">PIC 2</div>
+            </div>
+            <div class="step-line completed"></div>
+            
+            <div class="step completed">
+                <div class="step-circle">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="step-label" data-translate="stepAuth">Authorization</div>
+            </div>
+            <div class="step-line completed"></div>
+            
+            <div class="step active">
+                <div class="step-circle">5</div>
+                <div class="step-label" data-translate="stepReview">Review</div>
+            </div>
+        </div>
+        <div class="step-counter">Step 5 of 5</div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="form-card">
+                <h2 class="form-title">Review & Submit</h2>
+                <p class="form-subtitle">Please review all information before submitting</p>
+                
+                <form id="step5Form" class="nomination-form">
+                    <!-- Agency Information Summary -->
+                    <div class="review-section">
+                        <div class="review-header">
+                            <h3 class="review-title">Agency Information</h3>
+                            <button type="button" class="btn-edit" onclick="editStep(1)">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M11.334 2.00004C11.5091 1.82494 11.7169 1.68605 11.9457 1.59129C12.1745 1.49653 12.4197 1.44775 12.6673 1.44775C12.9149 1.44775 13.1601 1.49653 13.3889 1.59129C13.6177 1.68605 13.8255 1.82494 14.0007 2.00004C14.1758 2.17513 14.3147 2.383 14.4094 2.61178C14.5042 2.84055 14.553 3.08575 14.553 3.33337C14.553 3.58099 14.5042 3.82619 14.4094 4.05497C14.3147 4.28374 14.1758 4.49161 14.0007 4.66671L5.00065 13.6667L1.33398 14.6667L2.33398 11L11.334 2.00004Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Edit
+                            </button>
+                        </div>
+                        <div class="review-grid">
+                            <div class="review-item">
+                                <span class="review-label">Organization Name</span>
+                                <span class="review-value" id="review-organizationName">-</span>
+                            </div>
+                            <div class="review-item">
+                                <span class="review-label">Agency Type</span>
+                                <span class="review-value" id="review-agencyType">-</span>
+                            </div>
+                            <div class="review-item">
+                                <span class="review-label">Department/Division</span>
+                                <span class="review-value" id="review-department">-</span>
+                            </div>
+                            <div class="review-item">
+                                <span class="review-label">Phone Number</span>
+                                <span class="review-value" id="review-phoneNumber">-</span>
+                            </div>
+                            <div class="review-item full-width">
+                                <span class="review-label">Official Address</span>
+                                <span class="review-value" id="review-officialAddress">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Person In Charge 1 Summary -->
+                    <div class="review-section">
+                        <div class="review-header">
+                            <h3 class="review-title">Person In Charge 1 (Primary)</h3>
+                            <button type="button" class="btn-edit" onclick="editStep(2)">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M11.334 2.00004C11.5091 1.82494 11.7169 1.68605 11.9457 1.59129C12.1745 1.49653 12.4197 1.44775 12.6673 1.44775C12.9149 1.44775 13.1601 1.49653 13.3889 1.59129C13.6177 1.68605 13.8255 1.82494 14.0007 2.00004C14.1758 2.17513 14.3147 2.383 14.4094 2.61178C14.5042 2.84055 14.553 3.08575 14.553 3.33337C14.553 3.58099 14.5042 3.82619 14.4094 4.05497C14.3147 4.28374 14.1758 4.49161 14.0007 4.66671L5.00065 13.6667L1.33398 14.6667L2.33398 11L11.334 2.00004Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Edit
+                            </button>
+                        </div>
+                        <div class="review-grid">
+                            <div class="review-item">
+                                <span class="review-label">Full Name</span>
+                                <span class="review-value" id="review-pic1FullName">-</span>
+                            </div>
+                            <div class="review-item">
+                                <span class="review-label">MyKad No.</span>
+                                <span class="review-value" id="review-pic1MyKad">-</span>
+                            </div>
+                            <div class="review-item">
+                                <span class="review-label">Designation</span>
+                                <span class="review-value" id="review-pic1Designation">-</span>
+                            </div>
+                            <div class="review-item">
+                                <span class="review-label">Department</span>
+                                <span class="review-value" id="review-pic1Department">-</span>
+                            </div>
+                            <div class="review-item">
+                                <span class="review-label">Official Email</span>
+                                <span class="review-value" id="review-pic1Email">-</span>
+                            </div>
+                            <div class="review-item">
+                                <span class="review-label">Office Phone</span>
+                                <span class="review-value" id="review-pic1OfficePhone">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Authorization Details Summary -->
+                    <div class="review-section">
+                        <div class="review-header">
+                            <h3 class="review-title">Authorization Details</h3>
+                            <button type="button" class="btn-edit" onclick="editStep(4)">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M11.334 2.00004C11.5091 1.82494 11.7169 1.68605 11.9457 1.59129C12.1745 1.49653 12.4197 1.44775 12.6673 1.44775C12.9149 1.44775 13.1601 1.49653 13.3889 1.59129C13.6177 1.68605 13.8255 1.82494 14.0007 2.00004C14.1758 2.17513 14.3147 2.383 14.4094 2.61178C14.5042 2.84055 14.553 3.08575 14.553 3.33337C14.553 3.58099 14.5042 3.82619 14.4094 4.05497C14.3147 4.28374 14.1758 4.49161 14.0007 4.66671L5.00065 13.6667L1.33398 14.6667L2.33398 11L11.334 2.00004Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Edit
+                            </button>
+                        </div>
+                        <div class="review-grid">
+                            <div class="review-item">
+                                <span class="review-label">Authorized Person</span>
+                                <span class="review-value" id="review-authorizedPersonName">-</span>
+                            </div>
+                            <div class="review-item">
+                                <span class="review-label">Position</span>
+                                <span class="review-value" id="review-authorizedPersonPosition">-</span>
+                            </div>
+                            <div class="review-item">
+                                <span class="review-label">Date of Submission</span>
+                                <span class="review-value" id="review-submissionDate">-</span>
+                            </div>
+                            <div class="review-item">
+                                <span class="review-label">Digital Signature</span>
+                                <span class="review-value" id="review-digitalSignature">Not uploaded</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Terms and Conditions -->
+                    <div class="terms-section">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="termsConditions" name="termsConditions" required>
+                            <span class="checkbox-label">
+                                I accept the Terms and Conditions
+                                <span class="required">*</span>
+                            </span>
+                        </label>
+                        <span class="error-message" id="termsConditionsError"></span>
+                    </div>
+
+                    <div class="terms-section">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="privacyPolicy" name="privacyPolicy" required>
+                            <span class="checkbox-label">
+                                I accept the Privacy Policy
+                                <span class="required">*</span>
+                            </span>
+                        </label>
+                        <span class="error-message" id="privacyPolicyError"></span>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="previousStep(5)" data-translate="previous">Back</button>
+                        <button type="button" class="btn" style="background: #666; color: white;" onclick="printPreview()">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="margin-right: 5px;">
+                                <path d="M5 5V3C5 2.44772 5.44772 2 6 2H14C14.5523 2 15 2.44772 15 3V5M5 14H4C2.89543 14 2 13.1046 2 12V8C2 6.89543 2.89543 6 4 6H16C17.1046 6 18 6.89543 18 8V12C18 13.1046 17.1046 14 16 14H15M5 14H15M5 14V17C5 17.5523 5.44772 18 6 18H14C14.5523 18 15 17.5523 15 17V14" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            Print Preview
+                        </button>
+                        <button type="button" class="btn btn-primary" onclick="submitForm()" data-translate="submit">Submit Nomination</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Suruhanjaya Komunikasi dan Multimedia Malaysia. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/nomination.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadReviewData();
+        });
+
+        function loadReviewData() {
+            const formData = JSON.parse(localStorage.getItem('nominationFormData') || '{}');
+            
+            // Agency Information
+            if (formData.step1) {
+                document.getElementById('review-organizationName').textContent = formData.step1.organizationName || '-';
+                document.getElementById('review-agencyType').textContent = formData.step1.agencyType || '-';
+                document.getElementById('review-department').textContent = formData.step1.department || '-';
+                document.getElementById('review-phoneNumber').textContent = formData.step1.phoneNumber || '-';
+                document.getElementById('review-officialAddress').textContent = formData.step1.officialAddress || '-';
+            }
+            
+            // Person In Charge 1
+            if (formData.step2) {
+                const pic1Name = (formData.step2.pic1Salutation || '') + ' ' + (formData.step2.pic1FullName || '');
+                document.getElementById('review-pic1FullName').textContent = pic1Name.trim() || '-';
+                document.getElementById('review-pic1MyKad').textContent = formData.step2.pic1MyKad || '-';
+                document.getElementById('review-pic1Designation').textContent = formData.step2.pic1Designation || '-';
+                document.getElementById('review-pic1Department').textContent = formData.step2.pic1Department || '-';
+                document.getElementById('review-pic1Email').textContent = formData.step2.pic1Email || '-';
+                document.getElementById('review-pic1OfficePhone').textContent = formData.step2.pic1OfficePhone || '-';
+            }
+            
+            // Authorization Details
+            if (formData.step4) {
+                document.getElementById('review-authorizedPersonName').textContent = formData.step4.authorizedPersonName || '-';
+                document.getElementById('review-authorizedPersonPosition').textContent = formData.step4.authorizedPersonPosition || '-';
+                document.getElementById('review-submissionDate').textContent = formData.step4.submissionDate || '-';
+                document.getElementById('review-digitalSignature').textContent = formData.step4.digitalSignature || 'Not uploaded';
+            }
+        }
+
+        function editStep(stepNumber) {
+            window.location.href = `step${stepNumber}.html`;
+        }
+
+        function submitForm() {
+            const termsChecked = document.getElementById('termsConditions').checked;
+            const privacyChecked = document.getElementById('privacyPolicy').checked;
+            
+            if (!termsChecked) {
+                document.getElementById('termsConditionsError').textContent = 'You must accept the Terms and Conditions';
+                return;
+            }
+            
+            if (!privacyChecked) {
+                document.getElementById('privacyPolicyError').textContent = 'You must accept the Privacy Policy';
+                return;
+            }
+            
+            // Clear error messages
+            document.getElementById('termsConditionsError').textContent = '';
+            document.getElementById('privacyPolicyError').textContent = '';
+            
+            // Generate reference number
+            const refNumber = 'LEA-' + new Date().getFullYear() + '-' + Math.floor(Math.random() * 90000 + 10000);
+            localStorage.setItem('referenceNumber', refNumber);
+            
+            // Redirect to success page
+            window.location.href = 'success.html';
+        }
+
+        function printPreview() {
+            window.print();
+        }
+    </script>
+</body>
+</html>
