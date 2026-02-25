@@ -96,6 +96,12 @@ body {
     letter-spacing: 0.5px;
 }
 
+.logo-image {
+    width: 120px;
+    height: auto;
+    display: inline-block;
+}
+
 .main-title {
     font-size: 24px;
     font-weight: 700;
