@@ -97,10 +97,10 @@
                     <!-- Agency Type -->
                     <div class="form-group">
                         <label for="agencyType" class="form-label">
-                            Agency Type <span class="required">*</span>
+                            <span data-translate="agencyType">Agency Type</span> <span class="required">*</span>
                         </label>
                         <select id="agencyType" name="agencyType" class="form-select" required>
-                            <option value="">Select an option</option>
+                            <option value="" data-translate="selectOption">Select an option</option>
                             <option value="Police">Police</option>
                             <option value="MACC">MACC (Malaysian Anti-Corruption Commission)</option>
                             <option value="Immigration">Immigration Department</option>
@@ -114,7 +114,7 @@
                     <!-- Department/Division -->
                     <div class="form-group">
                         <label for="department" class="form-label">
-                            Department/Division <span class="required">*</span>
+                            <span data-translate="department">Department/Division</span> <span class="required">*</span>
                         </label>
                         <input 
                             type="text" 
@@ -122,6 +122,7 @@
                             name="department" 
                             class="form-input" 
                             placeholder="Enter department or division"
+                            data-translate-placeholder="departmentPlaceholder"
                             required
                         >
                         <span class="error-message" id="departmentError"></span>
@@ -130,13 +131,14 @@
                     <!-- Official Address -->
                     <div class="form-group">
                         <label for="officialAddress" class="form-label">
-                            Official Address <span class="required">*</span>
+                            <span data-translate="officialAddress">Official Address</span> <span class="required">*</span>
                         </label>
                         <textarea 
                             id="officialAddress" 
                             name="officialAddress" 
                             class="form-textarea" 
                             placeholder="Enter complete official address"
+                            data-translate-placeholder="addressPlaceholder"
                             rows="4"
                             required
                         ></textarea>
@@ -146,15 +148,15 @@
                     <!-- Phone Number -->
                     <div class="form-group">
                         <label for="phoneNumber" class="form-label">
-                            Phone Number <span class="required">*</span>
-                            <span class="hint-text">(Malaysian format)</span>
+                            <span data-translate="phoneNumber">Phone Number</span> <span class="required">*</span>
                         </label>
                         <input 
                             type="tel" 
                             id="phoneNumber" 
                             name="phoneNumber" 
                             class="form-input" 
-                            placeholder="+60XXXXXXXXXX or 0XXXXXXXXXX"
+                            placeholder="+60XXXXXXXXXX"
+                            data-translate-placeholder="phonePlaceholder"
                             required
                         >
                         <span class="error-message" id="phoneNumberError"></span>
@@ -163,21 +165,22 @@
                     <!-- Fax Number -->
                     <div class="form-group">
                         <label for="faxNumber" class="form-label">
-                            Fax Number
+                            <span data-translate="faxNumber">Fax Number</span>
                         </label>
                         <input 
                             type="tel" 
                             id="faxNumber" 
                             name="faxNumber" 
                             class="form-input" 
-                            placeholder="+60XXXXXXXXXX or 0XXXXXXXXXX"
+                            placeholder="+603XXXXXXXX"
+                            data-translate-placeholder="faxPlaceholder"
                         >
                         <span class="error-message" id="faxNumberError"></span>
                     </div>
 
                     <!-- Navigation Buttons -->
                     <div class="form-actions">
-                        <button type="button" class="btn btn-primary" onclick="nextStep(1)">Next</button>
+                        <button type="button" class="btn btn-primary" onclick="nextStep(1)" data-translate="next">Next</button>
                     </div>
                 </form>
             </div>

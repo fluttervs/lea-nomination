@@ -122,6 +122,39 @@ const translations = {
         // Demo Button
         'fillDemo': '⚡ Fill Demo Data',
         
+        // Review Page
+        'reviewAgencyInfo': 'Agency Information',
+        'editButton': 'Edit',
+        'reviewOrgName': 'Organization Name',
+        'reviewAgencyType': 'Agency Type',
+        'reviewDepartment': 'Department/Division',
+        'reviewPhoneNumber': 'Phone Number',
+        'reviewOfficialAddress': 'Official Address',
+        'reviewPIC1Title': 'Person In Charge 1 (Primary)',
+        'reviewFullName': 'Full Name',
+        'reviewMyKad': 'MyKad No.',
+        'reviewDesignation': 'Designation',
+        'reviewDepartmentLabel': 'Department',
+        'reviewEmail': 'Official Email',
+        'reviewOfficePhone': 'Office Phone',
+        'reviewAuthTitle': 'Authorization Details',
+        'reviewAuthPerson': 'Authorized Person',
+        'reviewPosition': 'Position',
+        'reviewSubmissionDate': 'Date of Submission',
+        'reviewDigitalSignature': 'Digital Signature',
+        'notUploaded': 'Not uploaded',
+        'acceptTerms': 'I accept the Terms and Conditions',
+        'acceptPrivacy': 'I accept the Privacy Policy',
+        
+        // UI Elements
+        'stepCounter3': 'Step 3 of 5',
+        'stepCounter4': 'Step 4 of 5',
+        'stepCounter5': 'Step 5 of 5',
+        'mykadFormat': '(Format: XXXXXX-XX-XXXX)',
+        'uploadTextStamp': 'Click to upload or drag and drop',
+        'uploadSpecsStamp': 'PNG, JPG, JPEG (max. 5 MB)',
+        'referenceNote': 'Please save this reference number for your records',
+        
         // Footer
         'footerText': '© 2024 Suruhanjaya Komunikasi dan Multimedia Malaysia. All rights reserved.'
     },
@@ -244,6 +277,39 @@ const translations = {
         
         // Demo Button
         'fillDemo': '⚡ Isi Data Demo',
+        
+        // Review Page
+        'reviewAgencyInfo': 'Maklumat Agensi',
+        'editButton': 'Edit',
+        'reviewOrgName': 'Nama Organisasi',
+        'reviewAgencyType': 'Jenis Agensi',
+        'reviewDepartment': 'Jabatan/Bahagian',
+        'reviewPhoneNumber': 'Nombor Telefon',
+        'reviewOfficialAddress': 'Alamat Rasmi',
+        'reviewPIC1Title': 'Pegawai Bertanggungjawab 1 (Utama)',
+        'reviewFullName': 'Nama Penuh',
+        'reviewMyKad': 'No. MyKad',
+        'reviewDesignation': 'Jawatan',
+        'reviewDepartmentLabel': 'Jabatan',
+        'reviewEmail': 'E-mel Rasmi',
+        'reviewOfficePhone': 'Telefon Pejabat',
+        'reviewAuthTitle': 'Butiran Kebenaran',
+        'reviewAuthPerson': 'Pegawai Yang Memberi Kuasa',
+        'reviewPosition': 'Jawatan',
+        'reviewSubmissionDate': 'Tarikh Penghantaran',
+        'reviewDigitalSignature': 'Tandatangan Digital',
+        'notUploaded': 'Tidak dimuat naik',
+        'acceptTerms': 'Saya menerima Terma dan Syarat',
+        'acceptPrivacy': 'Saya menerima Dasar Privasi',
+        
+        // UI Elements
+        'stepCounter3': 'Langkah 3 daripada 5',
+        'stepCounter4': 'Langkah 4 daripada 5',
+        'stepCounter5': 'Langkah 5 daripada 5',
+        'mykadFormat': '(Format: XXXXXX-XX-XXXX)',
+        'uploadTextStamp': 'Klik untuk muat naik atau seret dan lepas',
+        'uploadSpecsStamp': 'PNG, JPG, JPEG (maks. 5 MB)',
+        'referenceNote': 'Sila simpan nombor rujukan ini untuk rekod anda',
         
         // Footer
         'footerText': '© 2024 Suruhanjaya Komunikasi dan Multimedia Malaysia. Hak cipta terpelihara.'
