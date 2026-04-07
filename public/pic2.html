@@ -10,19 +10,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Language Toggle -->
-    <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">
-        <span class="lang-toggle-flag">🇲🇾</span>
-        <span class="lang-toggle-text">BM</span>
-    </button>
-
-    <!-- Theme Toggle -->
-    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
-        <span class="theme-toggle-icon">🌙</span>
-        <span class="theme-toggle-text">Dark</span>
-    </button>
-
-    <div class="container">
+<nav class="psirp-topbar">
+    <div class="psirp-topbar-inner">
+        <div class="psirp-brand">
+            <img src="images/mcmc-logo.png" alt="MCMC Logo" class="psirp-brand-logo">
+            <span class="psirp-brand-title">Postal Security Incident Reporting Platform</span>
+        </div>
+        <div class="psirp-topbar-actions">
+            <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()" aria-label="Language switch">
+                <span class="lang-toggle-flag">BM</span>
+                <span class="lang-toggle-text">EN</span>
+            </button>
+            <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Theme switch">
+                <span class="theme-toggle-icon">*</span>
+                <span class="theme-toggle-text" aria-hidden="true"></span>
+            </button>
+<span class="psirp-user-label">AGENCY FORM</span>
+</div>
+    </div>
+</nav>
+<div class="container">
         <!-- Header -->
         <header class="header">
             <div class="logo">
@@ -77,12 +84,7 @@
         <!-- Main Content -->
         <main class="main-content">
             <div class="form-card">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                    <h2 class="form-title" style="margin: 0;" data-translate="pic2Title">Person In Charge 2 (Secondary Contact)</h2>
-                    <button type="button" onclick="fillDemoData()" class="btn" style="background: #F59E0B; color: white; padding: 8px 16px; font-size: 13px;" data-translate="fillDemo">
-                        ⚡ Fill Demo Data
-                    </button>
-                </div>
+                <h2 class="form-title" data-translate="pic2Title">Person In Charge 2 (Secondary Contact)</h2>
                 <p class="form-subtitle" data-translate="pic2Subtitle">Secondary contact person for this nomination</p>
                 <p class="optional-badge" data-translate="pic2Optional">Optional but Recommended</p>
                 
@@ -115,20 +117,36 @@
                         <span class="error-message" id="pic2SalutationError"></span>
                     </div>
 
-                    <!-- Full Name -->
+                    <!-- First Name -->
                     <div class="form-group">
-                        <label for="pic2FullName" class="form-label" data-translate="fullName">
-                            Full Name
+                        <label for="pic2FirstName" class="form-label" data-translate="firstName">
+                            First Name
                         </label>
                         <input 
                             type="text" 
-                            id="pic2FullName" 
-                            name="pic2FullName" 
+                            id="pic2FirstName" 
+                            name="pic2FirstName" 
                             class="form-input" 
-                            placeholder="Enter full name as per MyKad"
-                            data-translate-placeholder="fullNamePlaceholder"
+                            placeholder="Enter first name as per MyKad"
+                            data-translate-placeholder="firstNamePlaceholder"
                         >
-                        <span class="error-message" id="pic2FullNameError"></span>
+                        <span class="error-message" id="pic2FirstNameError"></span>
+                    </div>
+
+                    <!-- Last Name -->
+                    <div class="form-group">
+                        <label for="pic2LastName" class="form-label" data-translate="lastName">
+                            Last Name
+                        </label>
+                        <input 
+                            type="text" 
+                            id="pic2LastName" 
+                            name="pic2LastName" 
+                            class="form-input" 
+                            placeholder="Enter last name as per MyKad"
+                            data-translate-placeholder="lastNamePlaceholder"
+                        >
+                        <span class="error-message" id="pic2LastNameError"></span>
                     </div>
 
                     <!-- MyKad No. -->
@@ -238,11 +256,16 @@
                 </form>
             </div>
         </main>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <p>&copy; 2024 Suruhanjaya Komunikasi dan Multimedia Malaysia. All rights reserved.</p>
-        </footer>
+<!-- Footer -->
+<footer class="psirp-bottombar">
+    <div class="psirp-bottombar-inner">
+        <div class="psirp-bottom-left">
+            <img src="images/mcmc-logo.png" alt="MCMC Logo" class="psirp-bottom-logo">
+            <p>Copyright &copy; 2026 Malaysian Communications and Multimedia Commission. All rights reserved.</p>
+        </div>
+        <p class="psirp-helpdesk">IT HELPDESK: 03-8688 8008 | ITHelpdesk@mcmc.gov.my</p>
+    </div>
+</footer>
     </div>
 
     <script src="js/nomination.js"></script>
@@ -271,7 +294,8 @@
             
             if (checkbox.checked && formData.step2) {
                 document.getElementById('pic2Salutation').value = formData.step2.pic1Salutation || '';
-                document.getElementById('pic2FullName').value = formData.step2.pic1FullName || '';
+                document.getElementById('pic2FirstName').value = formData.step2.pic1FirstName || '';
+                document.getElementById('pic2LastName').value = formData.step2.pic1LastName || '';
                 document.getElementById('pic2MyKad').value = formData.step2.pic1MyKad || '';
                 document.getElementById('pic2Designation').value = formData.step2.pic1Designation || '';
                 document.getElementById('pic2Department').value = formData.step2.pic1Department || '';
@@ -281,7 +305,8 @@
             } else {
                 // Clear all fields if unchecked
                 document.getElementById('pic2Salutation').value = '';
-                document.getElementById('pic2FullName').value = '';
+                document.getElementById('pic2FirstName').value = '';
+                document.getElementById('pic2LastName').value = '';
                 document.getElementById('pic2MyKad').value = '';
                 document.getElementById('pic2Designation').value = '';
                 document.getElementById('pic2Department').value = '';
@@ -294,7 +319,8 @@
         // Fill demo data
         function fillDemoData() {
             document.getElementById('pic2Salutation').value = 'Ms';
-            document.getElementById('pic2FullName').value = 'Siti Nurhaliza binti Ibrahim';
+            document.getElementById('pic2FirstName').value = 'Siti Nurhaliza';
+            document.getElementById('pic2LastName').value = 'binti Ibrahim';
             document.getElementById('pic2MyKad').value = '850522-10-1234';
             document.getElementById('pic2Designation').value = 'Deputy Superintendent of Police';
             document.getElementById('pic2Department').value = 'Commercial Crime Investigation Department';

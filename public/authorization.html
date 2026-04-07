@@ -10,19 +10,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Language Toggle -->
-    <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">
-        <span class="lang-toggle-flag">🇲🇾</span>
-        <span class="lang-toggle-text">BM</span>
-    </button>
-
-    <!-- Theme Toggle -->
-    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
-        <span class="theme-toggle-icon">🌙</span>
-        <span class="theme-toggle-text">Dark</span>
-    </button>
-
-    <div class="container">
+<nav class="psirp-topbar">
+    <div class="psirp-topbar-inner">
+        <div class="psirp-brand">
+            <img src="images/mcmc-logo.png" alt="MCMC Logo" class="psirp-brand-logo">
+            <span class="psirp-brand-title">Postal Security Incident Reporting Platform</span>
+        </div>
+        <div class="psirp-topbar-actions">
+            <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()" aria-label="Language switch">
+                <span class="lang-toggle-flag">BM</span>
+                <span class="lang-toggle-text">EN</span>
+            </button>
+            <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Theme switch">
+                <span class="theme-toggle-icon">*</span>
+                <span class="theme-toggle-text" aria-hidden="true"></span>
+            </button>
+<span class="psirp-user-label">AGENCY FORM</span>
+</div>
+    </div>
+</nav>
+<div class="container">
         <!-- Header -->
         <header class="header">
             <div class="logo">
@@ -81,12 +88,7 @@
         <!-- Main Content -->
         <main class="main-content">
             <div class="form-card">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                    <h2 class="form-title" style="margin: 0;" data-translate="authTitle">Authorization & Declaration</h2>
-                    <button type="button" onclick="fillDemoData()" class="btn" style="background: #F59E0B; color: white; padding: 8px 16px; font-size: 13px;" data-translate="fillDemo">
-                        ⚡ Fill Demo Data
-                    </button>
-                </div>
+                <h2 class="form-title" data-translate="authTitle">Authorization & Declaration</h2>
                 <p class="form-subtitle" data-translate="authSubtitle">Please provide authorization details and upload required documents</p>
                 
                 <form id="step4Form" class="nomination-form">
@@ -219,11 +221,16 @@
                 </form>
             </div>
         </main>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <p>&copy; 2024 Suruhanjaya Komunikasi dan Multimedia Malaysia. All rights reserved.</p>
-        </footer>
+<!-- Footer -->
+<footer class="psirp-bottombar">
+    <div class="psirp-bottombar-inner">
+        <div class="psirp-bottom-left">
+            <img src="images/mcmc-logo.png" alt="MCMC Logo" class="psirp-bottom-logo">
+            <p>Copyright &copy; 2026 Malaysian Communications and Multimedia Commission. All rights reserved.</p>
+        </div>
+        <p class="psirp-helpdesk">IT HELPDESK: 03-8688 8008 | ITHelpdesk@mcmc.gov.my</p>
+    </div>
+</footer>
     </div>
 
     <script src="js/nomination.js"></script>

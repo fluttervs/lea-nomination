@@ -11,9 +11,9 @@ const translations = {
         'optional': 'Optional',
         
         // Header
-        'mainTitle': 'POSTAL SECURITY INCIDENT REPORTING PLATFORM',
-        'subTitle': 'NOMINATION FORM FOR LAW ENFORCEMENT AGENCY (LEA)',
-        'organization': 'Suruhanjaya Komunikasi dan Multimedia Malaysia (MCMC)',
+        'mainTitle': 'Postal Security Incident Reporting Platform',
+        'subTitle': 'Nomination Form For Law Enforcement Agency (LEA)',
+        'organization': 'Report, track, and analyze postal security incidents securely with real-time collaboration and centralized governance oversight.',
         
         // Steps
         'stepAgency': 'Agency Info',
@@ -48,8 +48,10 @@ const translations = {
         'pic1Subtitle': 'Primary contact person for this nomination',
         'salutation': 'Salutation',
         'selectOption': 'Select an option',
-        'fullName': 'Full Name',
-        'fullNamePlaceholder': 'As per MyKad/Official ID',
+        'firstName': 'First Name',
+        'firstNamePlaceholder': 'As per MyKad/Official ID',
+        'lastName': 'Last Name',
+        'lastNamePlaceholder': 'As per MyKad/Official ID',
         'mykadNumber': 'MyKad Number',
         'mykadPlaceholder': 'XXXXXX-XX-XXXX',
         'designation': 'Designation/Position',
@@ -59,8 +61,11 @@ const translations = {
         'email': 'Official Email Address',
         'emailPlaceholder': 'name@agency.gov.my',
         'emailHint': 'Preferably .gov.my email',
+        'altEmail': 'Optional Alternative Email',
+        'altEmailPlaceholder': 'alternative@email.com',
         'mobileNumber': 'Mobile Number',
         'mobilePlaceholder': '+60XXXXXXXXXX',
+        'altPhoneNumber': 'Optional Alternative Phone No.',
         'officeNumber': 'Office Phone Number',
         'officeNumberHint': 'Direct line if available',
         
@@ -131,12 +136,15 @@ const translations = {
         'reviewPhoneNumber': 'Phone Number',
         'reviewOfficialAddress': 'Official Address',
         'reviewPIC1Title': 'Person In Charge 1 (Primary)',
-        'reviewFullName': 'Full Name',
+        'reviewFirstName': 'First Name',
+        'reviewLastName': 'Last Name',
         'reviewMyKad': 'MyKad No.',
         'reviewDesignation': 'Designation',
         'reviewDepartmentLabel': 'Department',
         'reviewEmail': 'Official Email',
+        'reviewAltEmail': 'Optional Alternative Email',
         'reviewOfficePhone': 'Office Phone',
+        'reviewAltPhone': 'Optional Alternative Phone No.',
         'reviewAuthTitle': 'Authorization Details',
         'reviewAuthPerson': 'Authorized Person',
         'reviewPosition': 'Position',
@@ -204,8 +212,10 @@ const translations = {
         'pic1Subtitle': 'Pegawai hubungan utama untuk pencalonan ini',
         'salutation': 'Gelaran',
         'selectOption': 'Pilih satu pilihan',
-        'fullName': 'Nama Penuh',
-        'fullNamePlaceholder': 'Seperti di MyKad/ID Rasmi',
+        'firstName': 'Nama Pertama',
+        'firstNamePlaceholder': 'Seperti di MyKad/ID Rasmi',
+        'lastName': 'Nama Akhir',
+        'lastNamePlaceholder': 'Seperti di MyKad/ID Rasmi',
         'mykadNumber': 'Nombor MyKad',
         'mykadPlaceholder': 'XXXXXX-XX-XXXX',
         'designation': 'Jawatan/Pangkat',
@@ -215,8 +225,11 @@ const translations = {
         'email': 'Alamat E-mel Rasmi',
         'emailPlaceholder': 'nama@agensi.gov.my',
         'emailHint': 'Lebih baik e-mel .gov.my',
+        'altEmail': 'E-mel Alternatif (Pilihan)',
+        'altEmailPlaceholder': 'alternatif@email.com',
         'mobileNumber': 'Nombor Telefon Bimbit',
         'mobilePlaceholder': '+60XXXXXXXXXX',
+        'altPhoneNumber': 'Nombor Telefon Alternatif (Pilihan)',
         'officeNumber': 'Nombor Telefon Pejabat',
         'officeNumberHint': 'Talian terus jika ada',
         
@@ -287,12 +300,15 @@ const translations = {
         'reviewPhoneNumber': 'Nombor Telefon',
         'reviewOfficialAddress': 'Alamat Rasmi',
         'reviewPIC1Title': 'Pegawai Bertanggungjawab 1 (Utama)',
-        'reviewFullName': 'Nama Penuh',
+        'reviewFirstName': 'Nama Pertama',
+        'reviewLastName': 'Nama Akhir',
         'reviewMyKad': 'No. MyKad',
         'reviewDesignation': 'Jawatan',
         'reviewDepartmentLabel': 'Jabatan',
         'reviewEmail': 'E-mel Rasmi',
+        'reviewAltEmail': 'E-mel Alternatif (Pilihan)',
         'reviewOfficePhone': 'Telefon Pejabat',
+        'reviewAltPhone': 'Nombor Telefon Alternatif (Pilihan)',
         'reviewAuthTitle': 'Butiran Kebenaran',
         'reviewAuthPerson': 'Pegawai Yang Memberi Kuasa',
         'reviewPosition': 'Jawatan',
@@ -361,6 +377,35 @@ function setLanguage(lang) {
             element.placeholder = translations[lang][key];
         }
     });
+
+    stylizeMainTitle();
+}
+
+/**
+ * Split the hero title so the first 3 words can use a different color.
+ */
+function stylizeMainTitle() {
+    const title = document.querySelector('.main-title');
+    if (!title) return;
+
+    const words = title.textContent.trim().split(/\s+/).filter(Boolean);
+    if (words.length <= 3) return;
+
+    const prefix = words.slice(0, 3).join(' ');
+    const suffix = words.slice(3).join(' ');
+
+    const prefixSpan = document.createElement('span');
+    prefixSpan.className = 'title-prefix';
+    prefixSpan.textContent = prefix;
+
+    const suffixSpan = document.createElement('span');
+    suffixSpan.className = 'title-suffix';
+    suffixSpan.textContent = suffix;
+
+    title.textContent = '';
+    title.appendChild(prefixSpan);
+    title.appendChild(document.createTextNode(' '));
+    title.appendChild(suffixSpan);
 }
 
 /**
@@ -371,14 +416,13 @@ function updateLanguageButton(lang) {
     if (langToggle) {
         const flag = langToggle.querySelector('.lang-toggle-flag');
         const text = langToggle.querySelector('.lang-toggle-text');
-        
-        if (lang === 'ms') {
-            flag.textContent = '🇬🇧';
-            text.textContent = 'EN';
-        } else {
-            flag.textContent = '🇲🇾';
-            text.textContent = 'BM';
-        }
+
+        flag.textContent = 'BM';
+        text.textContent = 'EN';
+
+        langToggle.classList.toggle('lang-ms', lang === 'ms');
+        langToggle.classList.toggle('lang-en', lang === 'en');
+        langToggle.setAttribute('aria-label', lang === 'ms' ? 'Bahasa Melayu selected' : 'English selected');
     }
 }
 
@@ -418,14 +462,12 @@ function updateThemeIcon(theme) {
     if (themeToggle) {
         const icon = themeToggle.querySelector('.theme-toggle-icon');
         const text = themeToggle.querySelector('.theme-toggle-text');
-        
-        if (theme === 'dark') {
-            icon.textContent = '☀️';
-            text.textContent = 'Light';
-        } else {
-            icon.textContent = '🌙';
-            text.textContent = 'Dark';
+
+        icon.textContent = '☼';
+        if (text) {
+            text.textContent = '';
         }
+        themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
     }
 }
 
@@ -435,6 +477,64 @@ document.addEventListener('DOMContentLoaded', initTheme);
 // ===========================
 // Form Data Management
 // ===========================
+
+/**
+ * Fill all nomination steps with demo data once user starts typing/selecting.
+ */
+function seedLeaDemoData() {
+    const today = new Date().toISOString().split('T')[0];
+    const demoData = {
+        step1: {
+            organizationName: 'Royal Malaysia Police',
+            agencyType: 'Police',
+            department: 'Commercial Crime Investigation Department',
+            officialAddress: 'Menara Cyber Crime, Jalan Semarak\n50630 Kuala Lumpur\nWilayah Persekutuan Kuala Lumpur',
+            phoneNumber: '+60388888888',
+            faxNumber: '+60388888899'
+        },
+        step2: {
+            pic1Salutation: 'Dato\'',
+            pic1FirstName: 'Ahmad Razali',
+            pic1LastName: 'bin Abdullah',
+            pic1MyKad: '720815-14-5678',
+            pic1Designation: 'Assistant Commissioner of Police',
+            pic1Department: 'Commercial Crime Investigation Department',
+            pic1Email: 'ahmad.razali@rmp.gov.my',
+            pic1AltEmail: 'ahmad.alt@email.com',
+            pic1OfficePhone: '+60388888801',
+            pic1MobilePhone: '+60123456789'
+        },
+        step3: {
+            pic2Salutation: 'Ms',
+            pic2FirstName: 'Siti Nurhaliza',
+            pic2LastName: 'binti Ibrahim',
+            pic2MyKad: '850522-10-1234',
+            pic2Designation: 'Deputy Superintendent of Police',
+            pic2Department: 'Commercial Crime Investigation Department',
+            pic2Email: 'siti.nurhaliza@rmp.gov.my',
+            pic2OfficePhone: '+60388888802',
+            pic2MobilePhone: '+60129876543'
+        },
+        step4: {
+            authorizedPersonName: 'Tan Sri Mohd Shuhaily bin Mohd Zain',
+            authorizedPersonPosition: 'Inspector-General of Police',
+            submissionDate: today,
+            declaration: true
+        }
+    };
+
+    const existing = JSON.parse(localStorage.getItem('nominationFormData') || '{}');
+    const merged = {
+        ...existing,
+        ...demoData,
+        step1: { ...(existing.step1 || {}), ...demoData.step1 },
+        step2: { ...(existing.step2 || {}), ...demoData.step2 },
+        step3: { ...(existing.step3 || {}), ...demoData.step3 },
+        step4: { ...(existing.step4 || {}), ...demoData.step4 }
+    };
+
+    localStorage.setItem('nominationFormData', JSON.stringify(merged));
+}
 
 /**
  * Save form data to localStorage
@@ -621,13 +721,22 @@ function validateStep2() {
         clearError('pic1Salutation');
     }
     
-    // Full Name
-    const fullName = document.getElementById('pic1FullName').value.trim();
-    if (!fullName) {
-        showError('pic1FullName', 'Full name is required');
+    // First Name
+    const firstName = document.getElementById('pic1FirstName').value.trim();
+    if (!firstName) {
+        showError('pic1FirstName', 'First name is required');
         isValid = false;
     } else {
-        clearError('pic1FullName');
+        clearError('pic1FirstName');
+    }
+
+    // Last Name
+    const lastName = document.getElementById('pic1LastName').value.trim();
+    if (!lastName) {
+        showError('pic1LastName', 'Last name is required');
+        isValid = false;
+    } else {
+        clearError('pic1LastName');
     }
     
     // MyKad No.
@@ -671,6 +780,15 @@ function validateStep2() {
     } else {
         clearError('pic1Email');
     }
+
+    // Alternative Email (optional)
+    const altEmail = document.getElementById('pic1AltEmail').value.trim();
+    if (altEmail && !validateEmail(altEmail)) {
+        showError('pic1AltEmail', 'Invalid alternative email format');
+        isValid = false;
+    } else {
+        clearError('pic1AltEmail');
+    }
     
     // Office Phone
     const officePhone = document.getElementById('pic1OfficePhone').value.trim();
@@ -701,7 +819,8 @@ function validateStep2() {
  */
 function validateStep3() {
     // Step 3 is optional, but if any field is filled, validate it
-    const pic2FullName = document.getElementById('pic2FullName').value.trim();
+    const pic2FirstName = document.getElementById('pic2FirstName').value.trim();
+    const pic2LastName = document.getElementById('pic2LastName').value.trim();
     const pic2MyKad = document.getElementById('pic2MyKad').value.trim();
     const pic2Email = document.getElementById('pic2Email').value.trim();
     const pic2OfficePhone = document.getElementById('pic2OfficePhone').value.trim();
@@ -861,6 +980,21 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (stepMatch) {
         const currentStep = parseInt(stepMatch[1]);
+        let hasAutoSeeded = false;
+
+        // Auto-fill all info once when user clicks/focuses any input control.
+        const controls = form.querySelectorAll('input, select, textarea');
+        controls.forEach(control => {
+            control.addEventListener('focus', function handleFirstFocus() {
+                if (hasAutoSeeded) {
+                    return;
+                }
+
+                seedLeaDemoData();
+                hasAutoSeeded = true;
+                loadFormData(currentStep);
+            }, { once: true });
+        });
         
         // Auto-save on input change
         const inputs = form.querySelectorAll('input, select, textarea');
